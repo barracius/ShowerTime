@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView
+            android:id="@+id/welcomeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+    <Button
+            android:id="@+id/createGroupButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/create_group"
+            app:layout_constraintTop_toBottomOf="@id/welcomeTextView"
+            app:layout_constraintEnd_toStartOf="@id/joinGroupButton"
+            android:layout_marginEnd="5dp"/>
+    <Button
+            android:id="@+id/joinGroupButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/welcomeTextView"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:text="@string/join_group"/>
+    <Button
+            android:id="@+id/myGroupsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/my_groups"
+            app:layout_constraintTop_toBottomOf="@id/welcomeTextView"
+            app:layout_constraintStart_toEndOf="@id/joinGroupButton"
+            android:layout_marginStart="5dp"/>
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Shower Time</string>
+    <string name="log_in">Log in</string>
+    <string name="sign_in">Register</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="submit">Submit</string>
+    <string name="create_group">Create Group</string>
+    <string name="join_group">Join Group</string>
+    <string name="my_groups">My Groups</string>
+    <string name="group_name">Group Name</string>
+    <string name="group_code">Group Code</string>
+    <string name="create_bathroom">Create Bathroom</string>
+    <string name="bathrooms">Bathrooms</string>
+    <string name="bathroom_name">Bathroom Name</string>
+</resources>
