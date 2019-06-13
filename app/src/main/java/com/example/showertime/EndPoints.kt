@@ -9,4 +9,5 @@ object EndPoints {
     val URL_MY_GROUPS = URL_ROOT + "mygroups"
     val URL_GET_GROUP_BY_ID = URL_ROOT + "getgroupbyid"
     val URL_ADD_BATHROOM = URL_ROOT + "addbathroom"
+    val URL_GET_BATHROOMS = URL_ROOT + "getbathrooms"
 }

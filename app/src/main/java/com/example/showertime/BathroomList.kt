@@ -10,7 +10,7 @@ import android.widget.TextView
 /**
  * Created by Belal on 5/21/2017.
  */
-class GroupList(private val context: Activity, internal var groups: List<Group>) : ArrayAdapter<Group>(context, R.layout.layout_list_group, groups) {
+class BathroomList(private val context: Activity, internal var bathrooms: List<Bathroom>) : ArrayAdapter<Bathroom>(context, R.layout.activity_bathroom_list, bathrooms) {
 
 
     @SuppressLint("SetTextI18n", "ViewHolder")
@@ -18,12 +18,10 @@ class GroupList(private val context: Activity, internal var groups: List<Group>)
         val inflater = context.layoutInflater
         val listViewItem = inflater.inflate(R.layout.layout_list_group, null, true)
 
-        val textViewName = listViewItem.findViewById(R.id.textViewName) as TextView
-        val textViewCode = listViewItem.findViewById(R.id.textViewCode) as TextView
+        val textViewName = listViewItem.findViewById(R.id.textViewNameB) as TextView
 
-        val group = groups[position]
-        textViewName.text = group.name
-        textViewCode.text = "Group code: " + group.code
+        val bathroom = bathrooms[position]
+        textViewName.text = bathroom.name
 
         return listViewItem
     }

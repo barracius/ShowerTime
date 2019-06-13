@@ -33,6 +33,8 @@ class VolleySingleton : Application() {
         var current_group_admin = "hola"
         var current_group_name = ""
         var current_group_id = ""
+        var current_bathroom_name = ""
+        var current_bathroom_id = ""
         private val TAG = VolleySingleton::class.java.simpleName
         @get:Synchronized var instance: VolleySingleton? = null
             private set

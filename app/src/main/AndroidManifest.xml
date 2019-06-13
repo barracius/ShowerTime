@@ -12,6 +12,10 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".BathroomDetailsActivity">
+        </activity>
+        <activity android:name=".BathroomList">
+        </activity>
         <activity android:name=".GroupsBathroom">
         </activity>
         <activity android:name=".CreateBathroom">

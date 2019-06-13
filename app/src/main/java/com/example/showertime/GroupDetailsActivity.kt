@@ -27,6 +27,9 @@ class GroupDetailsActivity : AppCompatActivity() {
             val intent = Intent(applicationContext, CreateBathroom::class.java)
             startActivity(intent)
         }
+        seeGroupsBathroomButton.setOnClickListener {
+            startActivity(Intent(applicationContext, GroupsBathroom::class.java))
+        }
     }
 
     private fun changeBathroomVisibility() {
