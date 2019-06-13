@@ -16,7 +16,7 @@ class BathroomList(private val context: Activity, internal var bathrooms: List<B
     @SuppressLint("SetTextI18n", "ViewHolder")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val inflater = context.layoutInflater
-        val listViewItem = inflater.inflate(R.layout.layout_list_group, null, true)
+        val listViewItem = inflater.inflate(R.layout.activity_bathroom_list, null, true)
 
         val textViewName = listViewItem.findViewById(R.id.textViewNameB) as TextView
 
