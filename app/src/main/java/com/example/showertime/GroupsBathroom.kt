@@ -50,7 +50,7 @@ class GroupsBathroom : AppCompatActivity() {
                 try {
                     val obj = JSONObject(s)
                     if (!obj.getBoolean("error")) {
-                        val array = obj.getJSONArray("groups")
+                        val array = obj.getJSONArray("bathrooms")
 
                         for (i in 0..array.length() - 1) {
                             val objectArtist = array.getJSONObject(i)
