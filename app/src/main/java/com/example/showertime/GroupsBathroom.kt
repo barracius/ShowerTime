@@ -10,6 +10,7 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.showertime.VolleySingleton.Companion.current_bathroom_id
 import com.example.showertime.VolleySingleton.Companion.current_bathroom_name
 import com.example.showertime.VolleySingleton.Companion.current_group_id
 import com.example.showertime.VolleySingleton.Companion.current_user_email
@@ -26,7 +27,7 @@ class GroupsBathroom : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_groups_bathroom)
 
-        listView = findViewById(R.id.listViewBathrooms) as ListView
+        listView = findViewById(R.id.listViewBathrooms)
         bathroomList = mutableListOf()
         loadBathrooms()
         setListOnClickListener()
@@ -38,6 +39,7 @@ class GroupsBathroom : AppCompatActivity() {
             val selectedBathroom = (listViewBathrooms.adapter).getItem(position) as Bathroom
             val intent = Intent(Intent(applicationContext, BathroomDetailsActivity::class.java))
             current_bathroom_name = selectedBathroom.name
+            current_bathroom_id = selectedBathroom.id
             startActivity(intent)
         }
     }
@@ -55,7 +57,8 @@ class GroupsBathroom : AppCompatActivity() {
                         for (i in 0..array.length() - 1) {
                             val objectArtist = array.getJSONObject(i)
                             val bathroom = Bathroom(
-                                objectArtist.getString("name")
+                                objectArtist.getString("name"),
+                                objectArtist.getString("id")
                             )
                             bathroomList!!.add(bathroom)
                             val adapter = BathroomList(this@GroupsBathroom, bathroomList!!)

@@ -2,7 +2,7 @@
 Proyecto ShowerTime del ramo de aplicaciones moviles
 
 -Integrantes:
-Raimundo Gonzalez
+Raimundo Gonzalez<br>
 Gustavo Vicuna
 
 Este proyecto usa una base de datos remota alojada en "http://shower-time.duckdns.org", si por alguna razon

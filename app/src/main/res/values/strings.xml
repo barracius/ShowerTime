@@ -14,4 +14,5 @@
     <string name="create_bathroom">Create Bathroom</string>
     <string name="bathrooms">Bathrooms</string>
     <string name="bathroom_name">Bathroom Name</string>
+    <string name="add_turn">Add Turn</string>
 </resources>
