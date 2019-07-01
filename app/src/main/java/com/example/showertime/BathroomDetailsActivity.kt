@@ -19,10 +19,13 @@ import kotlinx.android.synthetic.main.activity_bathroom_details.*
 import kotlinx.android.synthetic.main.login.*
 import org.json.JSONException
 import org.json.JSONObject
+import kotlin.properties.Delegates
+
 // Notificacion al tomar turno con tiempo estimado.
 class BathroomDetailsActivity : AppCompatActivity() {
     private var listView: ListView? = null
     private var turnList: MutableList<Turn>? = null
+    var cantElementos : Int = 0
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +34,7 @@ class BathroomDetailsActivity : AppCompatActivity() {
         listView = turnsListView
         turnList = mutableListOf()
         loadTurns()
+        estimatedTime()
         addTurnButton.setOnClickListener {
             addTurn()
         }
@@ -38,6 +42,10 @@ class BathroomDetailsActivity : AppCompatActivity() {
             deleteTurn()
         }
 
+    }
+
+    private fun estimatedTime() {
+        Toast.makeText(applicationContext, "con array length: $cantElementos", Toast.LENGTH_LONG).show()
     }
 
     private fun loadTurns() {
@@ -60,6 +68,8 @@ class BathroomDetailsActivity : AppCompatActivity() {
                             val adapter = TurnList(this@BathroomDetailsActivity, turnList!!)
                             listView!!.adapter = adapter
                         }
+                        this.cantElementos = array.length()
+                        //Toast.makeText(applicationContext, "con array length: $cantElementos", Toast.LENGTH_LONG).show()
                     } else {
                         Toast.makeText(applicationContext, obj.getString("message"), Toast.LENGTH_LONG).show()
                     }
