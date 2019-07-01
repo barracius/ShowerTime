@@ -12,6 +12,7 @@ import com.android.volley.Response
 import com.android.volley.VolleyError
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.showertime.VolleySingleton.Companion.cantidad_turnos
 import com.example.showertime.VolleySingleton.Companion.current_bathroom_id
 import com.example.showertime.VolleySingleton.Companion.current_bathroom_name
 import com.example.showertime.VolleySingleton.Companion.current_user_email
@@ -25,7 +26,7 @@ import kotlin.properties.Delegates
 class BathroomDetailsActivity : AppCompatActivity() {
     private var listView: ListView? = null
     private var turnList: MutableList<Turn>? = null
-    var cantElementos : Int = 0
+    var cantElementos: Int? = 0
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +35,6 @@ class BathroomDetailsActivity : AppCompatActivity() {
         listView = turnsListView
         turnList = mutableListOf()
         loadTurns()
-        estimatedTime()
         addTurnButton.setOnClickListener {
             addTurn()
         }
@@ -42,10 +42,6 @@ class BathroomDetailsActivity : AppCompatActivity() {
             deleteTurn()
         }
 
-    }
-
-    private fun estimatedTime() {
-        Toast.makeText(applicationContext, "con array length: $cantElementos", Toast.LENGTH_LONG).show()
     }
 
     private fun loadTurns() {
@@ -68,8 +64,7 @@ class BathroomDetailsActivity : AppCompatActivity() {
                             val adapter = TurnList(this@BathroomDetailsActivity, turnList!!)
                             listView!!.adapter = adapter
                         }
-                        this.cantElementos = array.length()
-                        //Toast.makeText(applicationContext, "con array length: $cantElementos", Toast.LENGTH_LONG).show()
+                        cantidad_turnos = array.length()
                     } else {
                         Toast.makeText(applicationContext, obj.getString("message"), Toast.LENGTH_LONG).show()
                     }
@@ -90,7 +85,9 @@ class BathroomDetailsActivity : AppCompatActivity() {
         requestQueue.add<String>(stringRequest)
     }
 
-    private fun addTurn() {
+
+    fun addTurn() {
+        Toast.makeText(applicationContext, "Cant elementos: ${cantidad_turnos}", Toast.LENGTH_LONG).show()
         val stringRequest = object : StringRequest(
             Request.Method.POST, EndPoints.URL_ADD_TURN,
             Response.Listener<String> { response ->
@@ -100,6 +97,7 @@ class BathroomDetailsActivity : AppCompatActivity() {
                     if(obj.getString("message") == "Successfully took turn"){
                         finish()
                         startActivity(intent)
+                        //enviar notificacion y calcular tiempo estimado
                     }
                 } catch (e: JSONException){
                     e.printStackTrace()
