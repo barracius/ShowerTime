@@ -15,24 +15,30 @@
             android:layout_width="match_parent"
             android:layout_height="400dp"></ListView>
 
-    <Button
+    <Button style="@style/Widget.AppCompat.Button.Colored"
             android:text="@string/add_turn"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="32dp"
             app:layout_constraintTop_toBottomOf="@+id/turnsListView"
             android:id="@+id/addTurnButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_width="112dp"
+            android:layout_height="50dp"/>
 
-    <Button
-            android:layout_marginTop="10dp"
-            app:layout_constraintTop_toBottomOf="@+id/turnsListView"
-            android:layout_marginStart="20dp"
+    <Button style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_marginStart="40dp"
             android:id="@+id/deleteTurnButton"
             app:layout_constraintStart_toEndOf="@id/addTurnButton"
             android:text="@string/delete_my_turn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_width="153dp"
+            android:layout_height="0dp" app:layout_constraintTop_toTopOf="@+id/addTurnButton"/>
+    <TextView
+            android:text="If you just finished showering delete your turn."
+            android:layout_width="296dp"
+            android:layout_height="42dp"
+            android:id="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/addTurnButton" android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="@+id/addTurnButton" android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/deleteTurnButton" android:layout_marginEnd="8dp"/>
 
 </android.support.constraint.ConstraintLayout>

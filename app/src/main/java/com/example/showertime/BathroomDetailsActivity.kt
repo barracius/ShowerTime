@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.activity_bathroom_details.*
 import kotlinx.android.synthetic.main.login.*
 import org.json.JSONException
 import org.json.JSONObject
-
+// Notificacion al tomar turno con tiempo estimado.
 class BathroomDetailsActivity : AppCompatActivity() {
     private var listView: ListView? = null
     private var turnList: MutableList<Turn>? = null
