@@ -17,11 +17,21 @@
 
     <Button
             android:text="@string/add_turn"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="10dp"
             app:layout_constraintTop_toBottomOf="@+id/turnsListView"
             android:id="@+id/addTurnButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <Button
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/turnsListView"
+            android:layout_marginStart="20dp"
+            android:id="@+id/deleteTurnButton"
+            app:layout_constraintStart_toEndOf="@id/addTurnButton"
+            android:text="@string/delete_my_turn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 

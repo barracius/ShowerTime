@@ -13,4 +13,5 @@ object EndPoints {
     val URL_GET_BATHROOMS = URL_ROOT + "getbathrooms"
     val URL_GET_TURNS = URL_ROOT + "getturns"
     val URL_ADD_TURN = URL_ROOT + "taketurn"
+    val URL_DEL_TURN = URL_ROOT + "deleteturn"
 }

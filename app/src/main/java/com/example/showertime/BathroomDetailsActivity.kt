@@ -16,6 +16,7 @@ import com.example.showertime.VolleySingleton.Companion.current_bathroom_id
 import com.example.showertime.VolleySingleton.Companion.current_bathroom_name
 import com.example.showertime.VolleySingleton.Companion.current_user_email
 import kotlinx.android.synthetic.main.activity_bathroom_details.*
+import kotlinx.android.synthetic.main.login.*
 import org.json.JSONException
 import org.json.JSONObject
 
@@ -33,6 +34,10 @@ class BathroomDetailsActivity : AppCompatActivity() {
         addTurnButton.setOnClickListener {
             addTurn()
         }
+        deleteTurnButton.setOnClickListener {
+            deleteTurn()
+        }
+
     }
 
     private fun loadTurns() {
@@ -83,6 +88,38 @@ class BathroomDetailsActivity : AppCompatActivity() {
                     val obj = JSONObject(response)
                     Toast.makeText(applicationContext, obj.getString("message"), Toast.LENGTH_LONG).show()
                     if(obj.getString("message") == "Successfully took turn"){
+                        finish()
+                        startActivity(intent)
+                    }
+                } catch (e: JSONException){
+                    e.printStackTrace()
+                }
+            },
+            object : Response.ErrorListener{
+                override fun onErrorResponse(volleyError: VolleyError) {
+                    Toast.makeText(applicationContext, volleyError.message, Toast.LENGTH_LONG).show()
+                }
+            }){
+            @Throws(AuthFailureError::class)
+            override fun getParams(): Map<String, String> {
+                val params = HashMap<String, String>()
+                params["user_email"] = current_user_email
+                params["bathroom_id"] = current_bathroom_id
+                return params
+            }
+        }
+        VolleySingleton.instance?.addToRequestQueue(stringRequest)
+    }
+
+    private fun deleteTurn() {
+
+        val stringRequest = object : StringRequest(
+            Request.Method.POST, EndPoints.URL_DEL_TURN,
+            Response.Listener<String> { response ->
+                try {
+                    val obj = JSONObject(response)
+                    Toast.makeText(applicationContext, obj.getString("message"), Toast.LENGTH_LONG).show()
+                    if(obj.getString("message") == "Turn deleted successfully"){
                         finish()
                         startActivity(intent)
                     }
