@@ -26,10 +26,11 @@ Cuando esto pasa, cuando se crea un usuario o logea un usuario no pasa nada.
   <li>End Turn</li>
   <li>Log out</li>
   <li>Improve the design</li>
+  <li>Display estimated time of current user's turn</li>
+  <li>Notify user when it's his turn</li>
 </ul>
 #To Do
 <ul>
+    <li>Change datetime how is displayed on turn list</li>
     <li>Traversing to previous activity without back button</li>
-    <li>Display estimated time of current user's turn</li>
-    <li>Notify user when it's his turn</li>
 </ul>
