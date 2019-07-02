@@ -25,6 +25,6 @@ Cuando esto pasa, cuando se crea un usuario o logea un usuario no pasa nada.
 * Improve the design
 * Display estimated time of current user's turn
 * Notify user when it's his turn
-## To Do
 * Change datetime how is displayed on turn list
+## To Do
 * Traversing to previous activity without back button
