@@ -13,7 +13,7 @@ class LoggedinMenu : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.loggedin_menu)
-        welcomeTextView.text = "Welcome to shower time, $current_user_name!"
+        welcomeTextView.text = "Welcome to Shower Time, $current_user_name!"
         val createGroupbutton = createGroupButton
         val joinGroupbutton = joinGroupButton
         val myGroupsbutton = myGroupsButton
@@ -31,6 +31,11 @@ class LoggedinMenu : AppCompatActivity() {
 
         myGroupsbutton.setOnClickListener {
             val intent = Intent(applicationContext, MyGroups::class.java)
+            startActivity(intent)
+        }
+
+        logoutButton.setOnClickListener {
+            val intent = Intent(applicationContext, MainActivity::class.java)
             startActivity(intent)
         }
 

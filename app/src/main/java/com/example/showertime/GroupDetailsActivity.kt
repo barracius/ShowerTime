@@ -22,6 +22,7 @@ class GroupDetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_group_details)
+        textView5.text = "$current_group_name's details"
         getGroupInfo()
         createBathroomButton.setOnClickListener {
             val intent = Intent(applicationContext, CreateBathroom::class.java)

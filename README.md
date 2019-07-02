@@ -24,12 +24,12 @@ Cuando esto pasa, cuando se crea un usuario o logea un usuario no pasa nada.
   <li>See current bathroom's turns</li>
   <li>Add a turn to the queue</li>
   <li>End Turn</li>
+  <li>Log out</li>
+  <li>Improve the design</li>
 </ul>
 #To Do
 <ul>
-    <li>Log out</li>
     <li>Traversing to previous activity without back button</li>
     <li>Display estimated time of current user's turn</li>
-    <li>Improve the design</li>
     <li>Notify user when it's his turn</li>
 </ul>

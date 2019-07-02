@@ -41,7 +41,7 @@
             app:layout_constraintEnd_toEndOf="@+id/deleteTurnButton" android:layout_marginEnd="8dp"/>
     <TextView
             android:text="Shower Details"
-            android:layout_width="178dp"
+            android:layout_width="match_parent"
             android:layout_height="41dp"
             android:id="@+id/textView2" android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"

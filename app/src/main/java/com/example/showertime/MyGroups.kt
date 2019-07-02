@@ -11,6 +11,7 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.showertime.VolleySingleton.Companion.current_group_id
+import com.example.showertime.VolleySingleton.Companion.current_group_name
 import com.example.showertime.VolleySingleton.Companion.current_user_email
 import kotlinx.android.synthetic.main.activity_my_groups.*
 import org.json.JSONException
@@ -36,6 +37,7 @@ class MyGroups : AppCompatActivity() {
             val selectedGroup = (listViewGroups.adapter).getItem(position) as Group
             val intent = Intent(Intent(applicationContext, GroupDetailsActivity::class.java))
             current_group_id = selectedGroup.code
+            current_group_name = selectedGroup.name
             startActivity(intent)
         }
     }

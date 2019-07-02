@@ -31,7 +31,7 @@ class BathroomDetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bathroom_details)
-        title = "$current_bathroom_name's current turns"
+        textView2.text = "$current_bathroom_name's current turns"
         listView = turnsListView
         turnList = mutableListOf()
         loadTurns()

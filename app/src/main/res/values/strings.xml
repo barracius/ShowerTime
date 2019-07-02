@@ -16,4 +16,5 @@
     <string name="bathroom_name">Bathroom Name</string>
     <string name="add_turn">Add Turn</string>
     <string name="delete_my_turn">Delete my Turn</string>
+    <string name="log_out">Log out</string>
 </resources>
