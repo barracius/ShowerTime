@@ -37,7 +37,7 @@ class Login : AppCompatActivity() {
             Response.Listener<String> { response ->
                 try {
                     val obj = JSONObject(response)
-                    Toast.makeText(applicationContext, obj.getString("message"), Toast.LENGTH_LONG).show()
+                    //Toast.makeText(applicationContext, obj.getString("message"), Toast.LENGTH_LONG).show()
                     if(obj.getString("message") == "Logged in"){
                         name = obj.getString("name")
                         val intent = Intent(applicationContext, LoggedinMenu::class.java)

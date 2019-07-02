@@ -59,7 +59,7 @@ class CreateGroup : AppCompatActivity() {
             Response.Listener<String> { response ->
                 try {
                     val obj = JSONObject(response)
-                    Toast.makeText(applicationContext, obj.getString("message"), Toast.LENGTH_LONG).show()
+                    //Toast.makeText(applicationContext, obj.getString("message"), Toast.LENGTH_LONG).show()
                     if(obj.getString("message") == "Group created successfully"){
                         val intent = Intent(applicationContext, LoggedinMenu::class.java)
                         startActivity(intent)

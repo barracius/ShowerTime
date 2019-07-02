@@ -36,7 +36,7 @@
             android:layout_width="296dp"
             android:layout_height="42dp"
             android:id="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/addTurnButton" android:layout_marginTop="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/addTurnButton" android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="@+id/addTurnButton" android:layout_marginStart="8dp"
             app:layout_constraintEnd_toEndOf="@+id/deleteTurnButton" android:layout_marginEnd="8dp"/>
     <TextView

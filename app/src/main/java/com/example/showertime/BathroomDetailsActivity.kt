@@ -1,9 +1,12 @@
 package com.example.showertime
 
 import android.annotation.SuppressLint
+import android.app.Notification
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.app.NotificationCompat
+import android.support.v4.app.NotificationManagerCompat
 import android.widget.ListView
 import android.widget.Toast
 import com.android.volley.AuthFailureError
@@ -27,6 +30,8 @@ class BathroomDetailsActivity : AppCompatActivity() {
     private var listView: ListView? = null
     private var turnList: MutableList<Turn>? = null
     var cantElementos: Int? = 0
+    var notificationId: Int = 0
+    var estaVacio: Boolean = false
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,7 +71,9 @@ class BathroomDetailsActivity : AppCompatActivity() {
                         }
                         cantidad_turnos = array.length()
                     } else {
-                        Toast.makeText(applicationContext, obj.getString("message"), Toast.LENGTH_LONG).show()
+                        if(obj.getString("message") == "This bathroom has no turns"){
+                            estaVacio = true
+                        }
                     }
                 } catch (e: JSONException) {
                     e.printStackTrace()
@@ -87,16 +94,43 @@ class BathroomDetailsActivity : AppCompatActivity() {
 
 
     fun addTurn() {
+        val CHANNEL_ID = "hola"
+        notificationId+=1
         Toast.makeText(applicationContext, "Cant elementos: ${cantidad_turnos}", Toast.LENGTH_LONG).show()
         val stringRequest = object : StringRequest(
             Request.Method.POST, EndPoints.URL_ADD_TURN,
             Response.Listener<String> { response ->
                 try {
                     val obj = JSONObject(response)
-                    Toast.makeText(applicationContext, obj.getString("message"), Toast.LENGTH_LONG).show()
+                    //Toast.makeText(applicationContext, obj.getString("message"), Toast.LENGTH_LONG).show()
                     if(obj.getString("message") == "Successfully took turn"){
+                        var builder: NotificationCompat.Builder?
+                        if (estaVacio){
+                            builder = NotificationCompat.Builder(this, CHANNEL_ID)
+                                .setSmallIcon(R.mipmap.ic_launcher)
+                                .setContentTitle("Shower Time")
+                                .setContentText("It's your turn to use $current_bathroom_name")
+                                .setStyle(NotificationCompat.BigTextStyle()
+                                    .bigText("It's your turn to use $current_bathroom_name"))
+                                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                        }
+                        else{
+                            val tiempo = cantidad_turnos*7
+                            builder = NotificationCompat.Builder(this, CHANNEL_ID)
+                                .setSmallIcon(R.mipmap.ic_launcher)
+                                .setContentTitle("Shower Time")
+                                .setContentText("$tiempo minutes remaining to use $current_bathroom_name")
+                                .setStyle(NotificationCompat.BigTextStyle()
+                                    .bigText("$tiempo minutes remaining to use $current_bathroom_name"))
+                                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                        }
+                        with(NotificationManagerCompat.from(this)) {
+                            // notificationId is a unique int for each notification that you must define
+                            notify(notificationId, builder.build())
+                        }
                         finish()
                         startActivity(intent)
+                        estaVacio = false
                         //enviar notificacion y calcular tiempo estimado
                     }
                 } catch (e: JSONException){
@@ -126,7 +160,7 @@ class BathroomDetailsActivity : AppCompatActivity() {
             Response.Listener<String> { response ->
                 try {
                     val obj = JSONObject(response)
-                    Toast.makeText(applicationContext, obj.getString("message"), Toast.LENGTH_LONG).show()
+                    //Toast.makeText(applicationContext, obj.getString("message"), Toast.LENGTH_LONG).show()
                     if(obj.getString("message") == "Turn deleted successfully"){
                         finish()
                         startActivity(intent)

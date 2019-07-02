@@ -47,7 +47,7 @@ class CreateBathroom : AppCompatActivity() {
             Response.Listener<String> { response ->
                 try {
                     val obj = JSONObject(response)
-                    Toast.makeText(applicationContext, obj.getString("message"), Toast.LENGTH_LONG).show()
+                    //Toast.makeText(applicationContext, obj.getString("message"), Toast.LENGTH_LONG).show()
                     if(obj.getString("message") == "Bathroom added successfully"){
                         val intent = Intent(applicationContext, GroupDetailsActivity::class.java)
                         startActivity(intent)

@@ -72,7 +72,7 @@ class Signin : AppCompatActivity() {
             Response.Listener<String> { response ->
                 try {
                     val obj = JSONObject(response)
-                    Toast.makeText(applicationContext, obj.getString("message"), Toast.LENGTH_LONG).show()
+                    //Toast.makeText(applicationContext, obj.getString("message"), Toast.LENGTH_LONG).show()
                     if(obj.getString("message") == "User added successfully"){
                         val intent = Intent(applicationContext, LoggedinMenu::class.java)
                         current_user_name = name
