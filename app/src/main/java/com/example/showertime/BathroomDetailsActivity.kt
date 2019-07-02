@@ -59,7 +59,7 @@ class BathroomDetailsActivity : AppCompatActivity() {
                     if (!obj.getBoolean("error")) {
                         val array = obj.getJSONArray("turns")
 
-                        for (i in 0..array.length() - 1) {
+                        for (i in 0 until array.length()) {
                             val objectArtist = array.getJSONObject(i)
                             val turn = Turn(
                                 objectArtist.getString("username"),
@@ -96,7 +96,7 @@ class BathroomDetailsActivity : AppCompatActivity() {
     fun addTurn() {
         val CHANNEL_ID = "hola"
         notificationId+=1
-        Toast.makeText(applicationContext, "Cant elementos: ${cantidad_turnos}", Toast.LENGTH_LONG).show()
+        //Toast.makeText(applicationContext, "Cant elementos: ${cantidad_turnos}", Toast.LENGTH_LONG).show()
         val stringRequest = object : StringRequest(
             Request.Method.POST, EndPoints.URL_ADD_TURN,
             Response.Listener<String> { response ->
@@ -131,7 +131,6 @@ class BathroomDetailsActivity : AppCompatActivity() {
                         finish()
                         startActivity(intent)
                         estaVacio = false
-                        //enviar notificacion y calcular tiempo estimado
                     }
                 } catch (e: JSONException){
                     e.printStackTrace()

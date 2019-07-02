@@ -23,7 +23,8 @@ class TurnList(private val context: Activity, internal var turns: List<Turn>) : 
 
         val turn = turns[position]
         textViewName.text = turn.username
-        textViewDate.text = turn.date
+        val hora = turn.date.split(" ")
+        textViewDate.text = hora[1]
 
         return listViewItem
     }
