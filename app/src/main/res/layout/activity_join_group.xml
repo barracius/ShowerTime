@@ -6,6 +6,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".JoinGroup">
+    <TextView
+            android:text="Join a User Group"
+            android:layout_width="312dp"
+            android:layout_height="40dp"
+            android:id="@+id/textView6" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:textAlignment="center" android:textSize="24sp" android:textColor="#00BCD4"/>
     <EditText
             android:id="@+id/codeEditText"
             android:layout_width="match_parent"
