@@ -12,21 +12,21 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".BathroomDetailsActivity">
+        <activity android:name=".BathroomDetailsActivity" android:parentActivityName=".GroupDetailsActivity">
         </activity>
-        <activity android:name=".BathroomList">
+        <activity android:name=".BathroomList" android:parentActivityName=".GroupDetailsActivity">
         </activity>
-        <activity android:name=".GroupsBathroom">
+        <activity android:name=".GroupsBathroom" android:parentActivityName=".GroupDetailsActivity">
         </activity>
-        <activity android:name=".CreateBathroom">
+        <activity android:name=".CreateBathroom" android:parentActivityName=".GroupDetailsActivity">
         </activity>
-        <activity android:name=".GroupDetailsActivity">
+        <activity android:name=".GroupDetailsActivity" android:parentActivityName=".MyGroups">
         </activity>
-        <activity android:name=".MyGroups">
+        <activity android:name=".MyGroups" android:parentActivityName=".LoggedinMenu">
         </activity>
-        <activity android:name=".CreateGroup">
+        <activity android:name=".CreateGroup" android:parentActivityName=".LoggedinMenu">
         </activity>
-        <activity android:name=".JoinGroup">
+        <activity android:name=".JoinGroup" android:parentActivityName=".LoggedinMenu">
         </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -35,8 +35,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".Login"/>
-        <activity android:name=".Signin"/>
+        <activity android:name=".Login" android:parentActivityName=".MainActivity"/>
+        <activity android:name=".Signin" android:parentActivityName=".MainActivity"/>
         <activity android:name=".LoggedinMenu"/>
     </application>
 
