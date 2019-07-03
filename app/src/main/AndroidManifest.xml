@@ -12,9 +12,7 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".BathroomDetailsActivity" android:parentActivityName=".GroupDetailsActivity">
-        </activity>
-        <activity android:name=".BathroomList" android:parentActivityName=".GroupDetailsActivity">
+        <activity android:name=".BathroomDetailsActivity" android:parentActivityName=".GroupsBathroom">
         </activity>
         <activity android:name=".GroupsBathroom" android:parentActivityName=".GroupDetailsActivity">
         </activity>
